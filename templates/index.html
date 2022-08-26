@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fetal Health Classification</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../static/css/style.css">
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="inner">
+				<form action="/predict" method="GET">
+
+					<p style="font-size: 25px;">FETAL HEALTH CLASSIFICATION <span id="result" style="color: #a4f773"><br>{{fetal_health_type}}</br></span></p>
+					<div class="input_container">
+
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='accelerations' step=0.01 min = 0.00 max = 2.00 id="t1">
+								<p>Accelerations</p>
+							</label>
+						</div>
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='uterine_contractions' step=0.01 min = 0.00 max = 1.00 id="t2">
+								<p>Uterine Contractions</p>
+							</label>
+						</div>
+						
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='prolongued_decelerations' step=0.01 min = 0.00 max = 0.50 id="t3">
+								<p>Prolongued Decelerations</p>
+							</label>
+						</div>
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='abnormal_short_term_variability' step="any" min = 0.00 max = 100.00 id="t4">
+								<p >Abnormal ShortTerm%</p>
+							</label>
+						</div>
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='percentage_of_time_with_abnormal_long_term_variability' step="any" min = 0.00 max = 100.00 id="t5">
+								<p >Abnormal LongTerm%</p>
+							</label>
+						</div>
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='mean_value_of_long_term_variability' step="any" id="t6">
+								<p >LongTerm Mean</p>
+							</label>
+						</div>
+						
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='histogram_mode' step="any" id="t7">
+								<p >Histogram Mode</p>
+							</label>
+						</div>				
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='histogram_mean' step="any" id="t8">
+								<p >Histogram Mean</p>
+							</label>
+						</div>
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number" class="form-control"  name='histogram_median' step="any" id="t9">
+								<p >Histogram Median</p>
+							</label>
+						</div>	
+	
+						<div class="input_field">
+							<label class="form-group">
+								<input type="number"  class="form-control"  name='histogram_variance' step="any" id="t10">
+								<p >Histogram Variance</p>
+							</label>
+						</div>
+					</div>
+
+					<div>
+						<button value="Check Empty" onclick="return ValidateTextBox()">Predict
+							<i class="zmdi zmdi-arrow-right"></i>
+						</button>
+					</div>
+					
+					
+				</form>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function ValidateTextBox() {
+				if (document.getElementById("t1").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t2").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t3").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t4").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t5").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t6").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t7").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t8").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t9").value.trim() == "") {alert("There is an empty field!");return false;}
+				if (document.getElementById("t10").value.trim() == "") {alert("There is an empty field!");return false;}
+			};
+		</script>
+		
+	</body>
+</html>
