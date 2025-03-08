@@ -94,8 +94,5 @@ The app provides sample cases to quickly test the model.
 
 This application is for educational and demonstration purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment.
 
-## License
-
-This project is licensed under the MIT License.
-
-## [A video summarizing](https://drive.google.com/file/d/1NsVqzhoBCpzv1NTg0eIF2nKc0npjz7tx/view)
+## Summary Video
+A video summarizing what I did in the code can be found using the following link: [Summary Video](https://drive.google.com/file/d/1NsVqzhoBCpzv1NTg0eIF2nKc0npjz7tx/view)
