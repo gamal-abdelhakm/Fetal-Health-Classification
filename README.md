@@ -1,63 +1,101 @@
-# Fetal-Health-Classification
+# Fetal Health Classification
 
-The Fetal Health Prediction model is a machine learning model that uses various techniques to classify the health of a fetus and is deployed as a web application using the Streamlit framework. This model can be used by medical professionals to identify potential health issues in the fetus early on and take appropriate action to prevent child and maternal mortality. It can also be used to monitor the health of the fetus throughout pregnancy and provide personalized care to the expectant mother.   
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-brightgreen)](https://share.streamlit.io/gamal-abdelhakm/Fetal-Health-Classification/main/streamlit_app.py)
+
+This repository implements a fetal health classification system achieving 95.83% accuracy using a tuned Gradient Boosting Classifier.
 
 ## Overview
-This project focuses on classifying fetal health status using various machine learning algorithms. The goal is to predict the health status of a fetus based on a set of medical features. The dataset is evaluated using different classification models to identify the most accurate and reliable model.
 
-## Dataset
-The dataset contains medical data for fetal health classification. The target variable represents the health status of the fetus, which can be one of three classes:
-[Normal-Suspect-Pathological]
+This project aims to predict fetal health based on cardiotocographic (CTG) examination data. The model can classify fetal health into three categories: Normal, Suspect, and Pathological.
 
-## Models Evaluated:
+## Features
 
-Logistic Regression
-Training Accuracy: 89.82%
-Testing Accuracy: 88.80%
-Macro Avg F1-Score: 0.78
-Weighted Avg F1-Score: 0.89
+- **Accelerations**: Number of accelerations per second
+- **Uterine Contractions**: Number of uterine contractions per second
+- **Prolonged Decelerations**: Number of prolonged decelerations per second
+- **Abnormal Short-term Variability**: Percentage of time with abnormal short-term variability
+- **Percentage of Time with Abnormal Long-term Variability**: Self-explanatory
+- **Mean Value of Long-term Variability**: Self-explanatory
+- **Histogram Features**: Mode, Mean, Median, and Variance of the histogram
 
-Support Vector Classifier (SVC)
-Training Accuracy: 91.90%
-Testing Accuracy: 90.32%
-Macro Avg F1-Score: 0.82
-Weighted Avg F1-Score: 0.90
+## Model
 
-K-Nearest Neighbors (KNN)
-Training Accuracy: 94.62%
-Testing Accuracy: 91.65%
-Macro Avg F1-Score: 0.84
-Weighted Avg F1-Score: 0.91
+The model was trained using a Gradient Boosting Classifier and tuned to achieve high accuracy. The final model and scaler are saved and loaded in the Streamlit application.
 
-Decision Tree Classifier
-Training Accuracy: 99.94%
-Testing Accuracy: 92.41%
-Macro Avg F1-Score: 0.86
-Weighted Avg F1-Score: 0.92
+## Streamlit App
 
-Random Forest Classifier
-Training Accuracy: 99.94%
-Testing Accuracy: 94.69%
-Macro Avg F1-Score: 0.90
-Weighted Avg F1-Score: 0.94
+You can interact with the model using the Streamlit app. The app provides an intuitive interface to enter patient data and predict fetal health.
 
-Gradient Boosting Classifier
-Training Accuracy: 98.55%
-Testing Accuracy: 95.64%
-Macro Avg F1-Score: 0.92
-Weighted Avg F1-Score: 0.95
+### How to Run the App
 
-Improved Gradient Boosting Classifier (Hyperparameter Tuning)
-Training Accuracy: 99.94%
-Testing Accuracy: 95.83%
-Macro Avg F1-Score: 0.92
-Weighted Avg F1-Score: 0.96
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/gamal-abdelhakm/Fetal-Health-Classification.git
+   cd Fetal-Health-Classification
+   ```
 
-## Key Findings: 
-The Gradient Boosting Classifier with hyperparameter tuning achieved the highest testing accuracy and robust performance across different metrics.
-The models demonstrate strong predictive capabilities, with the improved Gradient Boosting Classifier showing an impressive testing accuracy of 95.83%.
+2. **Install the dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Conclusion: 
-Machine learning models, particularly the Gradient Boosting Classifier with tuned hyperparameters, are effective in classifying fetal health statuses based on medical data. These models can assist healthcare professionals in making informed decisions about fetal health.
+3. **Run the Streamlit app**:
+   ```bash
+   streamlit run streamlit_app.py
+   ```
 
-## A video summarizing what I did in the code : https://drive.google.com/file/d/1NsVqzhoBCpzv1NTg0eIF2nKc0npjz7tx/view
+## Usage
+
+1. **Enter Patient Data**: Input the features related to fetal health.
+2. **Predict**: Click the "Predict Fetal Health" button to get the prediction.
+3. **View Results**: The app will display the predicted fetal health category along with confidence levels and recommendations.
+
+## Example
+
+The app provides sample cases to quickly test the model.
+
+- **Normal Case**:
+  - Accelerations: 0.008
+  - Uterine Contractions: 0.004
+  - Prolonged Decelerations: 0.0
+  - Abnormal Short-term Variability: 19.0
+  - Percentage of Time with Abnormal Long-term Variability: 0.0
+  - Mean Value of Long-term Variability: 9.0
+  - Histogram Mode: 132.0
+  - Histogram Mean: 136.0
+  - Histogram Median: 138.0
+  - Histogram Variance: 12.0
+
+- **Suspect Case**:
+  - Accelerations: 0.002
+  - Uterine Contractions: 0.015
+  - Prolonged Decelerations: 0.002
+  - Abnormal Short-term Variability: 60.0
+  - Percentage of Time with Abnormal Long-term Variability: 30.0
+  - Mean Value of Long-term Variability: 7.0
+  - Histogram Mode: 128.0
+  - Histogram Mean: 137.0
+  - Histogram Median: 140.0
+  - Histogram Variance: 18.0
+
+- **Pathological Case**:
+  - Accelerations: 0.0
+  - Uterine Contractions: 0.006
+  - Prolonged Decelerations: 0.008
+  - Abnormal Short-term Variability: 85.0
+  - Percentage of Time with Abnormal Long-term Variability: 70.0
+  - Mean Value of Long-term Variability: 3.0
+  - Histogram Mode: 133.0
+  - Histogram Mean: 135.0
+  - Histogram Median: 130.0
+  - Histogram Variance: 25.0
+
+## Disclaimer
+
+This application is for educational and demonstration purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment.
+
+## License
+
+This project is licensed under the MIT License.
+
+## [A video summarizing](https://drive.google.com/file/d/1NsVqzhoBCpzv1NTg0eIF2nKc0npjz7tx/view)
